@@ -1,7 +1,5 @@
 ﻿using System.Collections;
-using System.ComponentModel;
 using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 using BrightIdeasSoftware;
 using PaintDotNet.Effects;
@@ -36,12 +34,12 @@ public class KeybindDialogue : EffectConfigDialog
 		_keybindTree.CellEditFinishing += KeybindTreeOnCellEditFinishing;
 
 		_keybindTree.AllColumns.Add(new OLVColumn("Name", "Name") { Width = 450, AspectGetter = ActionNameFormatter });
-		_keybindTree.AllColumns.Add(new OLVColumn("Shortcut", "Shortcut") { FillsFreeSpace = true, AspectGetter = ShortcutFormatter});
+		_keybindTree.AllColumns.Add(new OLVColumn("Shortcut", "Shortcut") { FillsFreeSpace = true, AspectGetter = ShortcutFormatter });
 		_keybindTree.RebuildColumns();
 
 		_keybindTree.SetObjects(PdnInternal.MainMenu.Items);
 		_keybindTree.ExpandAll();
-		
+
 		CollectIdentifiers(PdnInternal.MainMenu, _itemIdentifiers);
 	}
 
@@ -49,15 +47,15 @@ public class KeybindDialogue : EffectConfigDialog
 	{
 		if (e.Cancel)
 			return;
-		
+
 		if (e.RowObject is not KeybindAction ka)
 			return;
 
 		var keys = Keys.None;
-		
+
 		if (!string.IsNullOrWhiteSpace((string)e.NewValue) && !KeybindManager.TryParseKeys((string)e.NewValue, out keys))
 			return;
-		
+
 		if (keys != Keys.None && !ToolStripManager.IsValidShortcut(keys))
 			return;
 
@@ -67,13 +65,13 @@ public class KeybindDialogue : EffectConfigDialog
 		var config = KeybindManager.ReadConfig();
 		config[itemId] = KeybindManager.StringifyKeys(keys);
 		KeybindManager.WriteConfig(config);
-		
+
 		_keybindTree.SetObjects(PdnInternal.MainMenu.Items);
 	}
 
 	private static void KeybindTreeOnCellEditStarting(object sender, CellEditEventArgs e)
 	{
-		if (e.Column.AspectName != "Shortcut") 
+		if (e.Column.AspectName != "Shortcut")
 			e.Cancel = true;
 	}
 
@@ -92,7 +90,7 @@ public class KeybindDialogue : EffectConfigDialog
 				if (path.Length > 0)
 					path += ".";
 				path += dropDownItem.Name;
-				foreach (var item in dropDownItem.DropDownItems) 
+				foreach (var item in dropDownItem.DropDownItems)
 					CollectIdentifiers(item, actions, path);
 
 				if (dropDownItem.Name.Length > 0)
