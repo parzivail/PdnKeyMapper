@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0-windows</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+      <OutputPath>E:\paint.net\Effects</OutputPath>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+      <OutputPath>E:\paint.net\Effects</OutputPath>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Reference Include="PaintDotNet.Core">
+        <HintPath>E:\paint.net\PaintDotNet.Core.dll</HintPath>
+      </Reference>
+      <Reference Include="PaintDotNet.Effects">
+        <HintPath>E:\paint.net\PaintDotNet.Effects.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Drawing.Common">
+        <HintPath>E:\paint.net\System.Drawing.Common.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Windows.Forms">
+        <HintPath>E:\paint.net\System.Windows.Forms.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="ObjectListView.Official" Version="2.9.2-alpha2" />
+    </ItemGroup>
+
+</Project>
