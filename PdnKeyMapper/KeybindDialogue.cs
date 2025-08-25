@@ -6,8 +6,13 @@ using PaintDotNet.Effects;
 
 namespace PdnKeyMapper;
 
-public class KeybindDialogue : EffectConfigDialog
+public class KeybindDialogue : EffectConfigForm2
 {
+	public class ConfigToken : EffectConfigToken
+	{
+		public override object Clone() => (object) new ConfigToken();
+	}
+	
 	private Dictionary<string, string> _itemIdentifiers = new();
 	private TreeListView _keybindTree;
 
@@ -20,11 +25,9 @@ public class KeybindDialogue : EffectConfigDialog
 		_keybindTree = new TreeListView()
 		{
 			Dock = DockStyle.Fill,
-			BorderStyle = BorderStyle.None
+			BorderStyle = BorderStyle.None,
 		};
 		Controls.Add(_keybindTree);
-
-		ResumeLayout(true);
 
 		_keybindTree.CanExpandGetter += CanExpandGetter;
 		_keybindTree.ChildrenGetter += ChildrenGetter;
@@ -39,6 +42,8 @@ public class KeybindDialogue : EffectConfigDialog
 
 		_keybindTree.SetObjects(PdnInternal.MainMenu.Items);
 		_keybindTree.ExpandAll();
+		
+		ResumeLayout(true);
 
 		CollectIdentifiers(PdnInternal.MainMenu, _itemIdentifiers);
 	}
@@ -153,5 +158,18 @@ public class KeybindDialogue : EffectConfigDialog
 			ToolStripMenuItem dropDownItem => dropDownItem.DropDownItems.Count > 0,
 			_ => false
 		};
+	}
+
+	protected override EffectConfigToken OnCreateInitialToken()
+	{
+		return new ConfigToken();
+	}
+
+	protected override void OnUpdateDialogFromToken(EffectConfigToken token)
+	{
+	}
+
+	protected override void OnUpdateTokenFromDialog(EffectConfigToken dstToken)
+	{
 	}
 }

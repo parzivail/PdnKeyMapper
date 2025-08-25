@@ -1,36 +1,51 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net6.0-windows</TargetFramework>
+        <TargetFramework>net9.0-windows</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-    </PropertyGroup>
-
-    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
-      <OutputPath>E:\paint.net\Effects</OutputPath>
-    </PropertyGroup>
-
-    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
-      <OutputPath>E:\paint.net\Effects</OutputPath>
+        <OutputPath>C:\Users\cnewman\scoop\apps\paint.net\current\Effects</OutputPath>
+        <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
     </PropertyGroup>
 
     <ItemGroup>
-      <Reference Include="PaintDotNet.Core">
-        <HintPath>E:\paint.net\PaintDotNet.Core.dll</HintPath>
-      </Reference>
-      <Reference Include="PaintDotNet.Effects">
-        <HintPath>E:\paint.net\PaintDotNet.Effects.dll</HintPath>
-      </Reference>
-      <Reference Include="System.Drawing.Common">
-        <HintPath>E:\paint.net\System.Drawing.Common.dll</HintPath>
-      </Reference>
-      <Reference Include="System.Windows.Forms">
-        <HintPath>E:\paint.net\System.Windows.Forms.dll</HintPath>
-      </Reference>
+        <Reference Include="PaintDotNet.Base">
+            <HintPath>C:\Users\cnewman\scoop\apps\paint.net\current\PaintDotNet.Base.dll</HintPath>
+        </Reference>
+        <Reference Include="PaintDotNet.Core">
+            <HintPath>C:\Users\cnewman\scoop\apps\paint.net\current\PaintDotNet.Core.dll</HintPath>
+        </Reference>
+        <Reference Include="PaintDotNet.ObjectModel">
+            <HintPath>C:\Users\cnewman\scoop\apps\paint.net\current\PaintDotNet.ObjectModel.dll</HintPath>
+        </Reference>
+        <Reference Include="PaintDotNet.ComponentModel">
+            <HintPath>C:\Users\cnewman\scoop\apps\paint.net\current\PaintDotNet.ComponentModel.dll</HintPath>
+        </Reference>
+        <Reference Include="PaintDotNet.Primitives">
+          <HintPath>..\..\..\scoop\apps\paint.net\current\PaintDotNet.Primitives.dll</HintPath>
+        </Reference>
+        <Reference Include="PaintDotNet.Windows">
+            <HintPath>C:\Users\cnewman\scoop\apps\paint.net\current\PaintDotNet.Windows.dll</HintPath>
+        </Reference>
+        <Reference Include="PaintDotNet.Windows.Core">
+            <HintPath>C:\Users\cnewman\scoop\apps\paint.net\current\PaintDotNet.Windows.Core.dll</HintPath>
+        </Reference>
+        <Reference Include="PaintDotNet.Effects.Core">
+            <HintPath>C:\Users\cnewman\scoop\apps\paint.net\current\PaintDotNet.Effects.Core.dll</HintPath>
+        </Reference>
+        <Reference Include="System.Private.Windows.Core">
+            <HintPath>C:\Users\cnewman\scoop\apps\paint.net\current\System.Private.Windows.Core.dll</HintPath>
+        </Reference>
+        <Reference Include="System.Windows.Forms">
+            <HintPath>C:\Users\cnewman\scoop\apps\paint.net\current\System.Windows.Forms.dll</HintPath>
+        </Reference>
+        <Reference Include="System.Windows.Forms.Primitives">
+            <HintPath>C:\Users\cnewman\scoop\apps\paint.net\current\System.Windows.Forms.Primitives.dll</HintPath>
+        </Reference>
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="ObjectListView.Official" Version="2.9.2-alpha2" />
+      <PackageReference Include="ObjectListView.Repack.NET6Plus" Version="2.9.5" />
     </ItemGroup>
 
 </Project>
