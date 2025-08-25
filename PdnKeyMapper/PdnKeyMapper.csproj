@@ -6,6 +6,7 @@
         <Nullable>enable</Nullable>
         <OutputPath>C:\Users\cnewman\scoop\apps\paint.net\current\Effects</OutputPath>
         <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+        <Version>1.1.0</Version>
     </PropertyGroup>
 
     <ItemGroup>
